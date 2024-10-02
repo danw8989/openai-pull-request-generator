@@ -1,0 +1,50 @@
+{
+  "name": "pr-summary-generator",
+  "displayName": "PR Summary Generator",
+  "description": "Generates PR summaries using OpenAI's API",
+  "version": "0.1.0",
+  "publisher": "your-name",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.generatePrSummary"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.generatePrSummary",
+        "title": "Generate PR Summary"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "PR Summary Generator",
+      "properties": {
+        "prSummaryGenerator.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Key"
+        },
+        "prSummaryGenerator.defaultTargetBranch": {
+          "type": "string",
+          "default": "origin/dev",
+          "description": "Default target branch for diffs"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "openai": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.18.63",
+    "@types/vscode": "^1.60.0",
+    "typescript": "^4.0.3",
+    "vscode": "^1.1.37"
+  }
+}
